@@ -174,12 +174,17 @@ export default {
 					let pagesSum = UD;
 					let workersSum = UD;
 					let total = 24 * 1099511627776;
-
+					let content_type = 'text/plain;charset=utf-8';
+					if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (_url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
+						content_type = 'application/yaml; chartset=utf-8';
+					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((_url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
+						content_type = 'application/json; chartset=utf-8';
+					}
 					if (userAgent && userAgent.includes('mozilla')) {
 						return new Response(维列斯Config, {
 							status: 200,
 							headers: {
-								"Content-Type": "text/html;charset=utf-8",
+								"Content-Type": `${content_type}`,
 								"Profile-Update-Interval": "6",
 								"Subscription-Userinfo": `upload=${pagesSum}; download=${workersSum}; total=${total}; expire=${expire}`,
 								"Cache-Control": "no-store",
@@ -190,7 +195,7 @@ export default {
 							status: 200,
 							headers: {
 								"Content-Disposition": `attachment; filename=${FileName}; filename*=utf-8''${encodeURIComponent(FileName)}`,
-								//"Content-Type": "text/plain;charset=utf-8",
+								"Content-Type": `${content_type}`,
 								"Profile-Update-Interval": "6",
 								"Subscription-Userinfo": `upload=${pagesSum}; download=${workersSum}; total=${total}; expire=${expire}`,
 							}
