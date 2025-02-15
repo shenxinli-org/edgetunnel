@@ -175,11 +175,11 @@ export default {
 					let workersSum = UD;
 					let total = 24 * 1099511627776;
 					let content_type = 'text/plain;charset=utf-8';
-					if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (_url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
-						content_type = 'application/yaml; chartset=utf-8';
-					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((_url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
-						content_type = 'application/json; chartset=utf-8';
-					}
+					// if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (_url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
+					// 	content_type = 'application/yaml; chartset=utf-8';
+					// } else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((_url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
+					// 	content_type = 'application/json; chartset=utf-8';
+					// }
 					if (userAgent && userAgent.includes('mozilla')) {
 						return new Response(维列斯Config, {
 							status: 200,
