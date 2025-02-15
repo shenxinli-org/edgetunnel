@@ -110,6 +110,7 @@ export default {
 
 			const upgradeHeader = request.headers.get('Upgrade');
 			const url = new URL(request.url);
+			let content_type = 'text/html;charset=utf-8';
 			if (!upgradeHeader || upgradeHeader !== 'websocket') {
 				if (env.ADD) addresses = await 整理(env.ADD);
 				if (env.ADDAPI) addressesapi = await 整理(env.ADDAPI);
@@ -174,12 +175,12 @@ export default {
 					let pagesSum = UD;
 					let workersSum = UD;
 					let total = 24 * 1099511627776;
-					let content_type = 'text/plain;charset=utf-8';
-					// if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (_url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
-					// 	content_type = 'application/yaml; chartset=utf-8';
-					// } else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((_url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
-					// 	content_type = 'application/json; chartset=utf-8';
-					// }
+					
+					if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
+						content_type = 'application/yaml; chartset=utf-8';
+					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
+						content_type = 'application/json; chartset=utf-8';
+					}
 					if (userAgent && userAgent.includes('mozilla')) {
 						return new Response(维列斯Config, {
 							status: 200,
