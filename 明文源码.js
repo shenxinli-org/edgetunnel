@@ -177,7 +177,7 @@ export default {
 					let total = 24 * 1099511627776;
 					
 					if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
-						content_type = 'application/yaml; chartset=utf-8';
+						content_type = 'text/yaml; chartset=utf-8';
 					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((url.searchParams.has('singbox') || url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
 						content_type = 'application/json; chartset=utf-8';
 					}
