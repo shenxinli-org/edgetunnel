@@ -178,7 +178,7 @@ export default {
 					
 					if ((userAgent.includes('clash') && !userAgent.includes('nekobox')) || (url.searchParams.has('clash') && !userAgent.includes('subconverter'))) {
 						content_type = 'application/yaml; chartset=utf-8';
-					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((url.searchParams.has('singbox') || _url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
+					} else if (userAgent.includes('sing-box') || userAgent.includes('singbox') || ((url.searchParams.has('singbox') || url.searchParams.has('sb')) && !userAgent.includes('subconverter'))) {
 						content_type = 'application/json; chartset=utf-8';
 					}
 					if (userAgent && userAgent.includes('mozilla')) {
